@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { View, StatusBar } from 'react-native'
 import * as Animatable from 'react-native-animatable'
-import { ImageBackgroundStyle} from '@styles/General'
+import { imageBackgroundStyle} from '@styles/General'
 
 export default class LoginScreen extends Component{
 
@@ -19,13 +19,13 @@ export default class LoginScreen extends Component{
 
     render(){
         return(
-            <View style={ImageBackgroundStyle.image}>
+            <View style={imageBackgroundStyle.image}>
                 <StatusBar translucent backgroundColor='rgba(0,0,0,0.2)'/>
                 <Animatable.Image
                     animation="pulse"
                     easing="ease-out"
                     iterationCount="infinite"
-                    atyle={{
+                    style={{
                         width: 200,
                         height: 200,
                         margin: 100,

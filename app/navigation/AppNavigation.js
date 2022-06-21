@@ -1,8 +1,8 @@
 import { ImagePickerIOS } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import SplashScreen from '@screens/SplashScreen'
-import LoginScreen from '@screens/LoginScreen'
+import SplashScreen from '@screen/SplashScreen'
+import LoginScreen from '@screen/LoginScreen'
 
 
 const AppNavigation = createStackNavigator({
