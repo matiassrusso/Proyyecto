@@ -20,7 +20,7 @@ export default class LoginScreen extends Component{
     render(){
         return(
             <View style={imageBackgroundStyle.image}>
-                <StatusBar translucent backgroundColor='rgba(0,0,0,0.2)'/>
+                <StatusBar translucent backgroundColor='rgba(0,0,0,1)'/>
                 <Animatable.Image
                     animation="pulse"
                     easing="ease-out"
