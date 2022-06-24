@@ -4,6 +4,9 @@ import { createStackNavigator } from "react-navigation-stack";
 import SplashScreen from '@screen/SplashScreen'
 import LoginScreen from '@screen/LoginScreen'
 import PrincipalScreen from '@screen/PrincipalScreen'
+import RecuperarPasswordScreen from "@screen/RecuperarPasswordScreen";
+
+
 
 
 
@@ -22,6 +25,12 @@ const AppNavigation = createStackNavigator({
     },
     Principal:{
         screen: PrincipalScreen,
+        navigationOptions:{
+            headerShown: false,
+        }
+    },
+    RecuperarPassword:{
+        screen: RecuperarPasswordScreen,
         navigationOptions:{
             headerShown: false,
         }

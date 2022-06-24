@@ -3,16 +3,21 @@ import { StatusBar, Text, View, TouchableOpacity, Image } from 'react-native'
 //import { View } from 'react-native-animatable'
 //import { TouchableOpacity } from 'react-native-gesture-handler'
 //import { color } from 'react-native-reanimated'
-import { loginStyles } from '@styles/styles'
+import { mainStyles, loginStyles } from '@styles/styles'
 import MyTextInput from '@components/MyTextInput'
 import color from '@styles/colors'
+//import RecuperarPasswordScreen from './RecuperarPasswordScreen'
 
-export default function LoginScreen(){
+function goToScreen(props, routeName){
+    props.navigation.navigate(routeName)
+}
+
+export default function LoginScreen(props){
 
     const [hidepassword, sethidepassword] = useState(false)
         return(
-            <View style={[loginStyles.container,{padding: 25}]}>
-                <StatusBar backgroundColor={color.WHITE} translucent ={true}/>
+            <View style={[mainStyles.container,{padding: 25}]}>
+                <StatusBar backgroundColor={color.BLACK} translucent ={true}/>
                 <View style={[loginStyles.logo]}>
                     <Image source={require('@recursos/images/64943.png')}
                     style={{ height:250, width:250}}/>
@@ -21,19 +26,19 @@ export default function LoginScreen(){
                 <MyTextInput keyboardType={null} placeholder='Contraseña' image='lock'
                 bolGone={true} secureTextEntry={hidepassword}
                 onPress={()=> sethidepassword(!hidepassword)}/>
-                <View style = {loginStyles.btnMain}>
+                <View style = {mainStyles.btnMain}>
                     <TouchableOpacity>
-                        <Text style={ loginStyles.btntxt}>Iniciar sesión</Text>
+                        <Text style={ mainStyles.btntxt}>Iniciar sesión</Text>
                     </TouchableOpacity>
                 </View>
-                <View style = {loginStyles.btnTransparent}>
+                <View style = {mainStyles.btnTransparent}>
                     <TouchableOpacity>
-                        <Text style={ [loginStyles.btntxt,{ color: color.BLACK}]}>Registrarse</Text>
+                        <Text style={ [mainStyles.btntxt,{ color: color.BLACK}]}>Registrarse</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity>
-                        <Text style={ [loginStyles.txtTransparent, { fontWeight: 'bold',textDecorationLine: 'underline'}]}>Olvide mi contraseña</Text>
+                    <TouchableOpacity onPress={()=> goToScreen(props, 'RecuperarPassword')}>
+                        <Text style={ [mainStyles.txtTransparent, { fontWeight: 'bold',textDecorationLine: 'underline'}]}>Olvide mi contraseña</Text>
                     </TouchableOpacity>
                 </View>
 

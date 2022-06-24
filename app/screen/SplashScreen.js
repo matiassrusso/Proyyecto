@@ -14,7 +14,7 @@ export default class LoginScreen extends Component{
         setTimeout( () => {
             this.goToScreen('Login')
 
-        }, 5000, this)
+        }, 2500, this)
     }
 
     render(){
