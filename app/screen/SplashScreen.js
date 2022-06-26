@@ -1,26 +1,27 @@
-import React, {Component} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { View, StatusBar } from 'react-native'
 import * as Animatable from 'react-native-animatable'
-import { imageBackgroundStyle} from '@styles/General'
+import { imageBackgroundStyle } from '@styles/General'
+import { getUsuario } from '@storage/UsuarioAsyncStorage'
+import { UsuarioContext } from '@context/UsuarioContext'
+import { splashStyles } from '@styles/styles'
 
-export default class LoginScreen extends Component{
 
-    goToScreen(routeName){
-        this.props.navigation.navigate(routeName)
-    }
 
-    componentDidMount(){
 
-        setTimeout( () => {
-            this.goToScreen('Login')
+export default function SplashScreen(props) {
 
-        }, 2500, this)
-    }
+    const [login, loginAction] = useContext(UsuarioContext)
 
-    render(){
-        return(
+    useEffect(() =>{
+        fetchSesion(loginAction)
+
+    }, [])
+
+
+        return (
             <View style={imageBackgroundStyle.image}>
-                <StatusBar translucent backgroundColor='rgba(0,0,0,1)'/>
+                <StatusBar translucent backgroundColor='rgba(0,0,0,1)' />
                 <Animatable.Image
                     animation="pulse"
                     easing="ease-out"
@@ -34,5 +35,28 @@ export default class LoginScreen extends Component{
                 />
             </View>
         )
-    }
+
+        async function fetchSesion(loginAction){
+
+            const response = await getUsuario()
+            console.log(response)
+
+            if (response == null){
+                setTimeout(()=>{
+                    goToScreen('Login')
+                }, 3000)
+                return
+            }
+
+            loginAction({type:'sing-in' , data: response})
+            setTimeout(()=>{
+                goToScreen('Principal')
+            }, 500)
+        }
+
+        function goToScreen(routeName){
+            props.navigation.replace(routeName)
+        }
+    
+    
 }

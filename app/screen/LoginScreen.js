@@ -14,7 +14,7 @@ function goToScreen(props, routeName){
 
 export default function LoginScreen(props){
 
-    const [hidepassword, sethidepassword] = useState(false)
+    const [hidepassword, sethidepassword] = useState(true)
         return(
             <View style={[mainStyles.container,{padding: 25}]}>
                 <StatusBar backgroundColor={color.BLACK} translucent ={true}/>
@@ -22,7 +22,7 @@ export default function LoginScreen(props){
                     <Image source={require('@recursos/images/64943.png')}
                     style={{ height:250, width:250}}/>
                 </View>
-                <MyTextInput keyboardType='email-adress' placeholder='E-mail' image='user'/>
+                <MyTextInput keyboardType="email-address" placeholder='E-mail' image='user'/>
                 <MyTextInput keyboardType={null} placeholder='Contraseña' image='lock'
                 bolGone={true} secureTextEntry={hidepassword}
                 onPress={()=> sethidepassword(!hidepassword)}/>
