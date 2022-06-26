@@ -8,10 +8,6 @@ import RecuperarPasswordScreen from "@screen/RecuperarPasswordScreen";
 import RegistroScreen from "@screen/RegistroScreen";
 
 
-
-
-
-
 const AppNavigation = createStackNavigator({
     Splash:{
         screen: SplashScreen,
