@@ -24,7 +24,7 @@ export default function RecuperarPasswordScreen(props) {
             iconLeft={require('@recursos/images/back.png')}/>
             <View style={[mainStyles.container,{padding: 50}]}>
                 <Text style={mainStyles.titleText}> Recuperar{'\n'}contraseña</Text>
-            <MyTextInput keyboardType='email-adress' placeholder='E-mail' image='user'/>
+            <MyTextInput keyboardType="email-adress" placeholder='E-mail' image='user'/>
             <View style = {mainStyles.btnMain}>
                 <TouchableOpacity onPress={()=> goToScreen(props, 'Login')}>
                     <Text style={ mainStyles.btntxt}>Recuperar</Text>
