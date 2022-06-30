@@ -24,7 +24,7 @@ export default function RegistroScreen(props) {
         <ScrollView
             keyboardDismissMode='on-drag'
             keyboardShouldPersistTaps='always'
-            style={{ backgroundColor: color.WHITE }}>
+            style={{ backgroundColor: color.BLACK }}>
             <StatusBar backgroundColor={color.BLUE} translucent={true} />
             <ToolBar titulo='Registrarse'
                 onPressLeft={() => goToScreen(props, 'Login')}
